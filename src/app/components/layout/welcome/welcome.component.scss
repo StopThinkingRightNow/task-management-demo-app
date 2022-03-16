@@ -1,0 +1,21 @@
+.welcome-page {
+  width: 50%;
+  margin: auto auto;
+  margin-top: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  mat-icon {
+    font-size: 30px;
+  }
+
+
+}
+
+
+.welcome-page-icon, .welcome-page-title  {
+  opacity: 0.4 !important;
+}
+

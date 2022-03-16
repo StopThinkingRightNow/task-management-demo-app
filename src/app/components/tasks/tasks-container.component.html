@@ -1,0 +1,77 @@
+<div class="task-container" cdkDropListGroup>
+  <div>
+    <app-task-pool
+      [projectId]="projectId"
+      [title]="'Ideas'"
+      [icon]="'add'"
+      [color]="'black'"
+      [showAddAction]="true"
+      cdkDropList
+      (cdkDropListDropped)="onCreate($event)"
+      [cdkDropListData]="createdTasks">
+      <div>
+        <app-task
+          *ngFor="let task of createdTasks$ | async"
+          [taskDetails]="task"
+          cdkDrag></app-task>
+      </div>
+    </app-task-pool>
+  </div>
+  <div>
+    <app-task-pool
+      [projectId]="projectId"
+      [title]="'Pending'"
+      [icon]="'pending_actions'"
+      [color]="'orange'"
+      cdkDropList
+      (cdkDropListDropped)="onPending($event)"
+      [cdkDropListData]="pendingTasks">
+      <div>
+        <app-task
+          *ngFor="let task of pendingTasks$ | async"
+          [taskDetails]="task"
+          [icon]="'pending_actions'"
+          cdkDrag></app-task>
+      </div>
+    </app-task-pool>
+  </div>
+  <div>
+    <app-task-pool
+      [projectId]="projectId"
+      [title]="'In Progress'"
+      [icon]="'donut_large'"
+      [color]="'green'"
+      cdkDropList
+      #progressList="cdkDropList"
+      (cdkDropListDropped)="onProgress($event)"
+      [cdkDropListData]="inProgressTasks">
+      <div>
+        <app-task
+          *ngFor="let item of inProgressTasks$ | async"
+          [taskDetails]="item"
+          [icon]="'donut_large'"
+          cdkDrag
+          [showActions]="false"></app-task>
+      </div>
+    </app-task-pool>
+  </div>
+  <div>
+    <app-task-pool
+      [projectId]="projectId"
+      [title]="'Done'"
+      [icon]="'check_circle'"
+      [color]="'limegreen'"
+      cdkDropList
+      (cdkDropListDropped)="onComplete($event)"
+      [cdkDropListData]="completedTasks">
+      <div>
+        <app-task
+          *ngFor="let item of completedTasks$ | async"
+          [taskDetails]="item"
+          [icon]="'check_circle'"
+          cdkDrag
+          [showActions]="false"></app-task>
+      </div>
+    </app-task-pool>
+  </div>
+</div>

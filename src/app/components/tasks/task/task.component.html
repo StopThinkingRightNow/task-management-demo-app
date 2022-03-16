@@ -1,0 +1,25 @@
+<mat-card class="example-card">
+  <mat-card-title class="task-details-title">
+    <span>
+      {{ taskDetails?.title }}
+    </span>
+    <span>
+      <mat-icon>{{ icon }}</mat-icon>
+    </span>
+  </mat-card-title>
+  <mat-card-content>
+    <p>{{ taskDetails?.description }}</p>
+  </mat-card-content>
+  <mat-card-actions style="display: flex; justify-content: space-between">
+    <p>{{ taskDetails?.timestamp | date: "short" }}</p>
+
+    <div *ngIf="showActions">
+      <button mat-icon-button (click)="onEditTask()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="onDeleteTask()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

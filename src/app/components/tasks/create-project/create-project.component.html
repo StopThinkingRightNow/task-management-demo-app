@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Create Project</h1>
+<div mat-dialog-content *ngIf="projectForm">
+  <form class="example-form" [formGroup]="projectForm">
+    <mat-form-field class="example-full-width"  appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name"/>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button cdkFocusInitial (click)="onCreate()">{{ data?.isUpdate ? 'Update' : 'Create' }}</button>
+</div>

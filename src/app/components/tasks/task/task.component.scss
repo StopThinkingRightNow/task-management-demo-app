@@ -1,0 +1,34 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+app-task {
+  mat-icon {
+    font-size: 18px;
+  }
+}
+
+.task-details {
+  .task-header {
+    display: flex;
+    justify-content: space-between;
+    mat-icon {
+      font-size: 18px;
+    }
+  }
+}
+
+.example-card {
+  margin-bottom: 6px;
+  .mat-card-title {
+    font-size: 14px !important;
+  }
+  mat-icon {
+    font-size: 18px !important;
+  }
+}
+
+.task-details-title {
+  display: flex;
+  justify-content: space-between;
+}
